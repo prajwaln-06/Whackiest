@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CivicGrid 2008 — National Innovation &amp; Travel Permit Portal</title>
+  <link rel="stylesheet" href="/static/legacy.css">
+  <script src="/static/portal.js" defer></script>
+</head>
+<body>
+  <header>
+    <span class="seal">CG</span>
+    <div><strong>CIVICGRID 2008</strong><br><small>INTER-DEPARTMENTAL ELECTRONIC SERVICES BUREAU</small></div>
+  </header>
+  <div class="strip">HOME &nbsp; | &nbsp; E-SERVICES &nbsp; | &nbsp; REGULATION INDEX &nbsp; | &nbsp; SITE DIRECTORY</div>
+  <div class="shell">
+    <aside>
+      <b>DIRECTORY</b>
+      <p>» Permits &amp; innovation</p><p>» Circulars 17-B to 74-D</p><p>» Assessment appendix</p><p>» Registry digest</p>
+      <hr><small>Service desk operating hours<br>Mon–Fri 09:00–16:00</small>
+    </aside>
+    <main>
+      <h1>National Innovation &amp; Travel Permit Portal</h1>
+      <div class="bulletin">PUBLIC NOTICE 41-B &nbsp; :: &nbsp; CONSOLIDATED ELECTRONIC INTAKE</div>
+      <p id="progress" class="progress" aria-live="polite">Step 1 of 4</p>
+      <form id="application">
+        <section data-screen="1">
+          <h2>Schedule I — Applicant Registry Particulars</h2>
+          <div class="legal">
+            <p>Eligibility: Applicants must be at least 18 and have a domicile in a participating jurisdiction. Startup applicants must supply a public project link.</p>
+            <p>Deadline: 31 December 2026 at 17:00 local time. Required document: one proposal in PDF or TXT format, up to 10 MB. Joint applicants must provide contact details for both parties.</p>
+          </div>
+          <div class="grid">
+            <div><label for="full">Applicant Legal Name</label><input id="full" name="full_name" autocomplete="name" required></div>
+            <div><label for="mail">Electronic Address of Record</label><input id="mail" name="email" type="email" autocomplete="email" required></div>
+            <div><label for="phone">Telephonic Contact Identifier</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+            <div><label for="birth">Date of Birth</label><input id="birth" name="date_of_birth" type="date" autocomplete="bday" required></div>
+            <div><label for="domicile">Domicile Jurisdiction Code</label><select id="domicile" name="country" aria-describedby="dom-help" required><option value="">— Select —</option><option value="IN">India</option><option value="GB">United Kingdom</option><option value="CA">Canada</option><option value="US">United States</option><option value="AU">Australia</option></select><small id="dom-help">Choose the country where you legally reside.</small></div>
+            <div><label for="cadence">Applicant Tax Cadence</label><select id="cadence" name="tax_cadence" aria-describedby="tax-help" required><option value="">— Select —</option><option value="annual">Annual</option><option value="quarterly">Quarterly</option><option value="exempt">Exempt</option></select><small id="tax-help">Select how often you file tax returns.</small></div>
+          </div>
+          <button type="button" data-next>Next — Applicant Classification</button>
+        </section>
+        <section data-screen="2" hidden>
+          <h2>Schedule II — Entity Classification &amp; Particulars</h2>
+          <fieldset><legend>Applicant Classification</legend>
+            <label><input type="radio" name="applicant_type" value="startup" required> Startup / Independent Builder</label>
+            <label><input type="radio" name="applicant_type" value="institution" required> Institution / Research Team</label>
+          </fieldset>
+          <div id="startup-block" hidden>
+            <div class="grid">
+              <div><label for="project">GitHub / Project URL</label><input id="project" name="project_url" type="url" required></div>
+              <div><label for="revenue">Annual Revenue Bracket</label><select id="revenue" name="annual_revenue" required><option value="">— Select —</option><option value="pre">Pre-revenue</option><option value="under50">Under $50,000</option><option value="over50">$50,000 or more</option></select></div>
+            </div>
+            <label><input id="joint" name="co_applicant" type="checkbox"> Include a co-applicant</label>
+            <div id="joint-block" class="grid" hidden>
+              <div><label for="joint-name">Co-applicant Legal Name</label><input id="joint-name" name="co_applicant_name" required></div>
+              <div><label for="joint-mail">Co-applicant Email</label><input id="joint-mail" name="co_applicant_email" type="email" required></div>
+            </div>
+          </div>
+          <div id="institution-block" hidden><label for="institution">Institution Name</label><input id="institution" name="organization_name" required></div>
+          <button type="button" data-prev>Back</button> <button type="button" data-next>Next — Evidence &amp; Declarations</button>
+        </section>
+        <section data-screen="3" hidden>
+          <h2>Schedule III — Evidence &amp; Declarations</h2>
+          <div class="grid">
+            <div><label for="proposal">Project Proposal</label><input id="proposal" name="proposal" type="file" accept=".pdf,.txt" aria-describedby="file-help" required><small id="file-help">Attach one PDF or TXT file, up to 10 MB.</small></div>
+            <div>
+              <span id="delivery-label">Notice Transmittal Medium</span>
+              <button id="delivery" type="button" role="combobox" aria-labelledby="delivery-label" aria-controls="delivery-list" aria-expanded="false" aria-required="true" aria-describedby="delivery-help">— Select —</button>
+              <small id="delivery-help">Choose how you want to receive status updates.</small>
+              <div id="delivery-list" role="listbox" aria-labelledby="delivery-label" hidden>
+                <button type="button" role="option" data-value="email" aria-selected="false">Email</button>
+                <button type="button" role="option" data-value="mail" aria-selected="false">Postal mail</button>
+              </div>
+              <input id="delivery-value" name="delivery" type="hidden">
+            </div>
+          </div>
+          <fieldset><legend>Supporting Declarations</legend>
+            <label><input type="checkbox" name="own_work" required> I confirm my team created the material in this proposal.</label>
+            <label><input type="checkbox" name="contact_permission" required> I consent to being contacted about this application.</label>
+          </fieldset>
+          <fieldset id="verification" hidden>
+            <legend>Human Verification Puzzle</legend>
+            <p>Click the shape matching the sample <strong id="pattern"></strong>.</p>
+            <button type="button" data-shape="circle">● Circle</button>
+            <button type="button" data-shape="square">■ Square</button>
+            <button type="button" data-shape="triangle">▲ Triangle</button>
+          </fieldset>
+          <button type="button" data-prev>Back</button> <button type="button" data-next>Next — Review Application</button>
+        </section>
+        <section data-screen="4" hidden>
+          <h2>Schedule IV — Review &amp; Legal Certification</h2>
+          <p class="legal">This is your final review. Submission certifies that your details are accurate and creates a permanent application record.</p>
+          <dl id="review"></dl>
+          <label><input type="checkbox" name="legal_certification" required> I certify that this legally binding application is accurate and complete.</label>
+          <button type="button" data-prev>Back</button> <button type="submit" class="submit">SUBMIT APPLICATION</button>
+        </section>
+        <p id="portal-error" role="alert" hidden></p>
+      </form>
+      <section id="receipt" hidden>
+        <h2>Application Received</h2>
+        <p>Submission complete. Your application has been submitted successfully.</p>
+        <p>Reference ID: <strong id="reference"></strong></p>
+        <p id="received"></p>
+      </section>
+    </main>
+  </div>
+  <footer>CG-EGOV RELEASE 8.04.102 &nbsp; | &nbsp; FOR OFFICIAL INTAKE PURPOSES</footer>
+</body>
+</html>

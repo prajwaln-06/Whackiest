@@ -1,0 +1,27 @@
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: #d8d9cd; color: #202b21; font: 16px Georgia, serif; }
+header { display: flex; align-items: center; gap: 16px; padding: 23px 30px; background: #153623; color: #f5edca; }
+header strong { font-size: 30px; letter-spacing: .09em; }
+.seal { display: grid; place-items: center; width: 54px; height: 54px; border: 3px double #e5ce85; border-radius: 50%; font-weight: bold; }
+.strip, footer { padding: 11px 26px; background: #d1bd77; border-block: 1px solid #716747; font: bold 12px Verdana, sans-serif; }
+.shell { display: grid; grid-template-columns: 178px minmax(0, 1fr); min-height: 560px; }
+aside { padding: 25px 15px; background: #e3e3cd; border-right: 2px groove #b2ab7c; font-size: 14px; }
+main { padding: 18px 24px 26px; background: #f8f5e3; }
+h1 { font-size: 27px; margin: 0 0 12px; color: #173622; }
+h2 { font-size: 21px; margin: 14px 0 10px; }
+.bulletin { padding: 7px 9px; background: #e5dfb7; border: 1px solid #a99c60; font: 12px monospace; }
+.progress { color: #1f5633; font-weight: bold; }
+.legal { padding: 5px 10px; border: 1px dotted #9b915e; font: 12px/1.4 Georgia, serif; background: #faf7e9; }
+.legal p { margin: 4px 0; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin: 14px 0; }
+label, #delivery-label { display: block; margin: 6px 0; font-weight: bold; }
+input:not([type=checkbox], [type=radio]), select, [role=combobox] { display: block; width: 100%; padding: 5px 8px; font: 15px Verdana, sans-serif; border: 1px solid #888466; background: #fffef5; }
+fieldset { border: 1px solid #9a966e; margin: 12px 0; }
+button { margin: 6px 0; padding: 7px 12px; border: 2px outset #c1bd92; background: #dfdab3; color: #222c21; font-weight: bold; cursor: pointer; }
+[role=option] { display: block; width: 100%; margin: 0; text-align: left; }
+.submit { background: #7f2020; color: white; }
+#portal-error { color: #9a1111; font-weight: bold; }
+dl { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px; border: 1px solid #b2ab7c; }
+dt { font-weight: bold; } dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 680px) { .shell { grid-template-columns: 1fr; } aside { display: none; } .grid { grid-template-columns: 1fr; } }

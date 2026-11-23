@@ -1,0 +1,7 @@
+CivicGrid demonstration proposal
+
+Project: An accessible intake assistant
+
+The prototype helps applicants understand requirements, complete forms,
+and review the information they are about to submit. This file contains
+fictional information for the WebMorph demonstration.
